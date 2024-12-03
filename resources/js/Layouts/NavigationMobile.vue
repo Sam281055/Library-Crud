@@ -81,8 +81,8 @@
 
                     <li class="relative px-6 py-3">
                         <ResponsiveNavLink
-                            :href="route('about')"
-                            :active="route().current('about')"
+                            :href="route('authors.index')"
+                            :active="route().current('authors.index')"
                         >
                             <template #icon>
                                 <svg
@@ -111,20 +111,20 @@
                             aria-haspopup="true"
                         >
                             <span class="inline-flex items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="size-6"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-                                />
-                            </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="size-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                                    />
+                                </svg>
                                 <span class="ml-4">Books</span>
                             </span>
                             <svg
@@ -141,19 +141,29 @@
                             </svg>
                         </button>
                         <ul
-                            v-show="showingTwoLevelMenu"
+                            v-show="showingTwoLevelMenu || route().current('books.index') || route().current('books.create')"
                             class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
                             aria-label="submenu"
                         >
                             <li
                                 class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                             >
-                                <a class="w-full" href="#">List</a>
+                                <NavLink
+                                    :href="route('books.index')"
+                                    :active="route().current('books.index')"
+                                >
+                                    List
+                                </NavLink>
                             </li>
                             <li
                                 class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                             >
-                                <a class="w-full" href="#">Create</a>
+                                <NavLink
+                                    :href="route('books.create')"
+                                    :active="route().current('books.create')"
+                                >
+                                    Create
+                                </NavLink>
                             </li>
                         </ul>
                     </li>

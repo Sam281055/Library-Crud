@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
             $table->string('name', 80);
-            $table->string('lastname', 80);
+            $table->string('last_name', 80);
             $table->foreignId('country_id')->constrained('countries')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
